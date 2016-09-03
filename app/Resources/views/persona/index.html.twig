@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Persona list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Natalidad</th>
+                <th>Estatura</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Genero</th>
+                <th>Descendientes</th>
+                <th>Vehiculo</th>
+                <th>Lengua</th>
+                <th>Ingles</th>
+                <th>Web</th>
+                <th>Tarjeta</th>
+                <th>Iban</th>
+                <th>Foto</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for persona in personas %}
+            <tr>
+                <td><a href="{{ path('persona_show', { 'id': persona.id }) }}">{{ persona.id }}</a></td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.edad }}</td>
+                <td>{% if persona.natalidad %}{{ persona.natalidad|date('d-m-Y') }}{% endif %}</td>
+                <td>{{ persona.estatura }}</td>
+                <td>{{ persona.email }}</td>
+                <td>{{ persona.telefono }}</td>
+                <td>{{ persona.genero }}</td>
+                <td>{{ persona.descendientes }}</td>
+                <td>{{ persona.vehiculo }}</td>
+                <td>{{ persona.lengua }}</td>
+                <td>{{ persona.ingles }}</td>
+                <td>{{ persona.web }}</td>
+                <td>{{ persona.tarjeta }}</td>
+                <td>{{ persona.iban }}</td>
+                <td><img src="{{ asset('/img/' ~ persona.foto ) }}" ></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('persona_show', { 'id': persona.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('persona_edit', { 'id': persona.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('persona_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

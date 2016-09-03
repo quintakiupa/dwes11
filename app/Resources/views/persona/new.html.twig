@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Persona creation</h1>
+
+
+<div class="row">
+    <div class='col-sm-6'>
+    {{ form_start(form) }}
+    
+        {{ form_row(form.nombre) }}
+        {{ form_row(form.edad) }}
+        {{ form_row(form.natalidad, {'attr': {'size': '15' }}) }}
+        <input type="date" id="form_edad" name="form.natalidad" />
+        {{ form_row(form.estatura) }}
+        {{ form_row(form.email) }}        
+        {{ form_row(form.telefono) }}
+        {{ form_row(form.descendientes) }}
+        {{ form_row(form.vehiculo) }}
+        {{ form_row(form.lengua) }}
+
+        {{ form_row(form.ingles, {'label_attr' : {'class' : 'radio-inline'}}) }}
+
+        {{ form_row(form.genero) }}
+        {{ form_row(form.web) }}
+        {{ form_row(form.tarjeta) }}
+        {{ form_row(form.iban) }}        
+        {{ form_row(form.foto) }}                
+
+        <p><input type="submit" value="Create" /></p>
+
+    {{ form_end(form) }}
+    </div>
+</div>
+
+    <ul>
+        <li>
+            <a href="{{ path('persona_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

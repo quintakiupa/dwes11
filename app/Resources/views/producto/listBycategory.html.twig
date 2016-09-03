@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} 
+
+<h1>Listado completo de productos</h1>
+<h3>Clasificados por categorías</h3>
+
+{% endblock %}
+
+{% block body %}
+AQUÍ ESTOY
+<h1>Listado completo de productos</h1>
+<h3>Clasificados por categorías</h3>
+
+{% for categoria in categorias %}
+
+<h4>{{ categoria.id }} - {{ categoria.nombre }}</h4>
+<table class="table table-striped">
+<thead>
+	<tr>
+		<th>{{ 'Id Producto' }}</th>
+		<th>{{ 'Nombre de producto' }}</th>
+		<th>{{ 'descripcion del producto' }}</th>
+		<th>{{ 'Precio del producto' }} (€)</th>
+	</tr>
+	</thead>
+	{% for producto in categoria.productos %}
+	<tbody>
+	<tr>			
+		<td>{{ producto.id }}</td>
+		<td>{{ producto.nombre }}</td>
+		<td>{{ producto.descripcion }}</td>
+		<td>{{ producto.precio }} (€)</td>
+	</tr>
+	</tbody>
+	{% endfor %}		
+</table>
+{% endfor %}
+
+{% endblock %}

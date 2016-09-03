@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Persona edit</h1>
+
+<div class="row">
+    <div class='col-sm-6'>    
+
+    {{ form_start(edit_form) }}
+    
+        {{ form_row(edit_form.nombre) }}
+        {{ form_row(edit_form.edad) }}
+        {{ form_row(edit_form.natalidad) }}
+        <input type="date" id="form_edad" name="form[natalidad]" />
+        {{ form_row(edit_form.estatura) }}
+        {{ form_row(edit_form.email) }}
+        {{ form_row(edit_form.telefono) }}
+        {{ form_row(edit_form.descendientes) }}
+        {{ form_row(edit_form.vehiculo) }}
+        {{ form_row(edit_form.lengua) }}
+        {{ form_row(edit_form.ingles, {'label_attr' : {'class' : 'radio-inline'}}) }}
+        {{ form_row(edit_form.genero) }}
+        {{ form_row(edit_form.web) }}
+        {{ form_row(edit_form.tarjeta) }}
+        {{ form_row(edit_form.iban) }}        
+        {{ form_row(edit_form.foto) }}                
+    
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    </div>
+</div>
+
+    <ul>
+        <li>
+            <a href="{{ path('persona_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

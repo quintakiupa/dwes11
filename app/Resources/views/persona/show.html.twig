@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Persona</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ persona.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ persona.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Edad</th>
+                <td>{{ persona.edad }}</td>
+            </tr>
+            <tr>
+                <th>Natalidad</th>
+                <td>{% if persona.natalidad %}{{ persona.natalidad|date('d-m-Y') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Estatura</th>
+                <td>{{ persona.estatura }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ persona.email }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ persona.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Genero</th>
+                <td>{{ persona.genero }}</td>
+            </tr>
+            <tr>
+                <th>Descendientes</th>
+                <td>{{ persona.descendientes }}</td>
+            </tr>
+            <tr>
+                <th>Vehiculo</th>
+                <td>{{ persona.vehiculo }}</td>
+            </tr>
+            <tr>
+                <th>Lengua</th>
+                <td>{{ persona.lengua }}</td>
+            </tr>
+            <tr>
+                <th>Ingles</th>
+                <td>{{ persona.ingles }}</td>
+            </tr>
+            <tr>
+                <th>Web</th>
+                <td>{{ persona.web }}</td>
+            </tr>
+            <tr>
+                <th>Tarjeta</th>
+                <td>{{ persona.tarjeta }}</td>
+            </tr>
+            <tr>
+                <th>Iban</th>
+                <td>{{ persona.iban }}</td>
+            </tr>
+            <tr>
+                <th>Foto</th>                
+                <td><img src="{{ asset('/img/' ~ persona.foto ) }}" ></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('persona_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('persona_edit', { 'id': persona.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
